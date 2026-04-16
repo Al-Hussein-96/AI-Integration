@@ -27,12 +27,13 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.alhussain.aiintegration.screens.AiScreen
+import com.alhussain.aiintegration.screens.OcrScreen
 import com.alhussain.aiintegration.ui.theme.AIIntegrationTheme
 
 sealed class Screen(val route: String) {
     object Home : Screen("home")
     object Classification : Screen("classification")
-    object Recognition : Screen("recognition")
+    object Ocr : Screen("ocr")
 }
 
 // ----------------------
@@ -78,13 +79,13 @@ class MainActivity : ComponentActivity() {
                             sampleBitmap = sampleBitmap // pass your bitmap here
                         )
                     }
-                    composable(Screen.Recognition.route) {
-                        val sampleBitmap = BitmapFactory.decodeResource(
+                    composable(Screen.Ocr.route) {
+                        val bitmap = BitmapFactory.decodeResource(
                             resources,
-                            R.drawable.dog
+                            R.drawable.image_text
                         )
-                        AiScreen(
-                            sampleBitmap = sampleBitmap // pass your bitmap here
+                        OcrScreen(
+                            bitmap = bitmap // pass your bitmap here
                         )
                     }
                 }
@@ -109,11 +110,11 @@ fun AiHomeScreen(onNavigateToAi: (String) -> Unit, modifier: Modifier = Modifier
             }
         ),
         AiFeature(
-            title = "Text Recognition",
+            title = "Text Recognition (OCR)",
             description = "Extract text from images (OCR)",
             icon = "📝",
             onClick = {
-                onNavigateToAi.invoke("recognition")
+                onNavigateToAi.invoke("ocr")
             }
         ),
         AiFeature(

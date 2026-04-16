@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation("androidx.navigation:navigation-compose:2.8.0")
 
+    implementation("com.google.mlkit:text-recognition:16.0.1")
 
     // TensorFlow Lite for AI inference
     implementation("org.tensorflow:tensorflow-lite:2.17.0")
