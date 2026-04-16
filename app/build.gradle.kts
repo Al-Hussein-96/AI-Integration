@@ -59,6 +59,8 @@ dependencies {
     implementation(libs.androidx.compose.material3)
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation("androidx.navigation:navigation-compose:2.8.0")
+
 
     // TensorFlow Lite for AI inference
     implementation("org.tensorflow:tensorflow-lite:2.17.0")
